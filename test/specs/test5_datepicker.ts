@@ -4,7 +4,6 @@
 //     return currentDate
 // }
 //     getDatePlusYear()
-//import * as moment from 'moment'
 
 // const today = new Date()
 // const addMonth = new Date(today.setMonth(today.getMonth()+1))
@@ -40,5 +39,3 @@ describe ('datepicker', () => {
         expect(await (await browser.$('.hasDatepicker')).getValue()).to.equal(`05/${addDays}/${year}`)
     })
 })
-// Получить все li (https://www.globalsqa.com/demo-site/auto-complete/#Categories). Написать цикл по массиву. Если текст равен 'annk K12', то кликнуть по нему и выйти из цикла (return/досрочно выйти из цикла если сработал if)
-// https://www.globalsqa.com/demo-site/auto-complete/#ComboBox клинуть кнопку. Пролистать до последнего элемента и выбрать его. Во втором начать вводить javas, Выбрать JS
