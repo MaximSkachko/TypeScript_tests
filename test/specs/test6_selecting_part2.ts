@@ -18,8 +18,6 @@ describe ('Selection', () => {
         expect(await (await browser.$('.custom-combobox-input.ui-widget.ui-widget-content.ui-state-default.ui-corner-left.ui-autocomplete-input')).getValue()).to.equal('JavaScript')
         expect(await (await browser.$('#combobox')).getValue()).to.equal('JavaScript')
     })
-})
-
-        
+})     
 // Получить все li (https://www.globalsqa.com/demo-site/auto-complete/#Categories). Написать цикл по массиву. Если текст равен 'annk K12', то кликнуть по нему и выйти из цикла (return/досрочно выйти из цикла если сработал if)
 // https://www.globalsqa.com/demo-site/auto-complete/#ComboBox клинуть кнопку. Пролистать до последнего элемента и выбрать его. Во втором начать вводить javas, Выбрать JS
