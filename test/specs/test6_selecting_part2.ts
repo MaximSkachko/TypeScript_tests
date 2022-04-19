@@ -1,7 +1,5 @@
 import {expect} from 'chai'
 
-
-
 describe ('Selection', () => {
     it ('Scroll and selection', async () => {
         await browser.url('https://www.globalsqa.com/demo-site/auto-complete/#ComboBox')

@@ -16,7 +16,8 @@ const month = day.getMonth()
 const year = day.getFullYear()
 const daysInMonth = new Date(year, month, 30).getDate(); // Не совсем понятно как это работает
 const addDays = new Date().getDate() + 3
-let newMonth = new Date(new Date().setMonth(new Date().getMonth() + 1)).toLocaleString('en', { month: 'long' })
+let newMonth = new Date(new Date().setMonth(new Date().getMonth() + 2)).getMonth()
+let newMonth1 = new Date(new Date().setMonth(new Date().getMonth() + 1))
 
 describe ('datepicker', () => {
     it ('how to use datepicker', async () => {
@@ -30,12 +31,13 @@ describe ('datepicker', () => {
         await (await browser.$('.ui-datepicker-next.ui-corner-all')).click()
         if (daysInMonth <= addDays) {
             await (await browser.$('.ui-datepicker-next.ui-corner-all')).click()
-            newMonth = new Date(new Date().setMonth(new Date().getMonth() + 2)).toLocaleString('en', { month: 'long' })
+            newMonth1 = new Date(new Date().setMonth(new Date().getMonth() + 2))
             //await browser.pause(1000)
         }
-        expect(await (await browser.$('.ui-datepicker-month')).getText()).to.equal(newMonth)
+        expect(await (await browser.$('.ui-datepicker-month')).getText()).to.equal(newMonth1.toLocaleString('en', {month: 'long'}))
         await (await browser.$(`//a[@class="ui-state-default" and .='${addDays}']`)).click()
         //await browser.pause(1000)
-        expect(await (await browser.$('.hasDatepicker')).getValue()).to.equal(`05/${addDays}/${year}`)
+        expect(await (await browser.$('.hasDatepicker')).getValue()).to.equal(`${(newMonth < 10) ? '0' + newMonth : newMonth}/${addDays}/${year}`)
     })
 })
+// если newMonth<10 добавлять 0
