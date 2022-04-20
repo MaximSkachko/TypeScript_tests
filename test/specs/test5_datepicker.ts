@@ -40,4 +40,3 @@ describe ('datepicker', () => {
         expect(await (await browser.$('.hasDatepicker')).getValue()).to.equal(`${(newMonth < 10) ? '0' + newMonth : newMonth}/${addDays}/${year}`)
     })
 })
-// если newMonth<10 добавлять 0
