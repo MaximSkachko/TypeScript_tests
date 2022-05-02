@@ -16,5 +16,6 @@ describe ('Selection', () => {
         expect(await (await browser.$('.custom-combobox-input.ui-widget.ui-widget-content')).getValue()).to.equal('JavaScript')
         expect(await (await browser.$('#combobox')).getValue()).to.equal('JavaScript')
     })
-})     
+})   
+  
 // https://www.globalsqa.com/demo-site/auto-complete/#ComboBox клинуть кнопку. Пролистать до последнего элемента и выбрать его. Во втором начать вводить javas, Выбрать JS
