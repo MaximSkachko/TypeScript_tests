@@ -18,7 +18,4 @@ describe ('Selecting and cycle', () => {
         }
         expect(await (await browser.$('#search')).getValue()).to.equal('annk K12')
     })
-})  
-        
-
-// Написать 'a'. Получить все li (https://www.globalsqa.com/demo-site/auto-complete/#Categories). Написать цикл по массиву. Если текст равен 'annk K12', то кликнуть по нему и выйти из цикла (return/досрочно выйти из цикла если сработал if)
+})
