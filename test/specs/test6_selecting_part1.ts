@@ -1,14 +1,15 @@
+import SearchPage from '../pageobjects/test6_selecting_part1.page'
 import {expect} from 'chai'
 
 
 describe ('Selecting and cycle', () => {
     it ('learning to write cycle', async () => {
-        await browser.url('https://www.globalsqa.com/demo-site/auto-complete/#Categories')
+        await SearchPage.open()
         await browser.maximizeWindow()
-        await browser.switchToFrame(await browser.$('.demo-frame.lazyloaded'))
-        await (await browser.$('#search')).waitForDisplayed()
-        await (await browser.$('#search')).setValue('a')
-        let elements = await browser.$$('.ui-menu.ui-widget .ui-menu-item')
+        await browser.switchToFrame(await SearchPage.FrameWithSearchField)
+        await SearchPage.waitDisplaying()
+        await SearchPage.setValue()
+        let elements = await browser.$$('.ui-menu.ui-widget .ui-menu-item') // как для такого написать page object
         for (let i = 0; i < elements.length; i++)
         {
           if  (await elements[i].getText() === 'annk K12')
@@ -16,6 +17,6 @@ describe ('Selecting and cycle', () => {
               await elements[i].click()
           }
         }
-        expect(await (await browser.$('#search')).getValue()).to.equal('annk K12')
+        expect(await SearchPage.SearchField.getValue()).to.equal('annk K12') 
     })
 })
