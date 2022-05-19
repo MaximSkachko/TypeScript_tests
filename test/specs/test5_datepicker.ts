@@ -10,7 +10,8 @@
 
 import PageWithDatepicker from '../pageobjects/test5_datepicker.page'
 import {expect} from 'chai'
-
+import util = require('util')
+// const util = require('util')
 
 
 const day = new Date()
@@ -36,7 +37,7 @@ describe ('datepicker', () => {
             //await browser.pause(1000)
         }
         expect (await PageWithDatepicker.SelectedMonth.getText()).to.equal(newMonth)
-        await (await browser.$(`//a[@class="ui-state-default" and .='${addDays}']`)).click()
+        await (await PageWithDatepicker.CellInDatePicker(addDays)).click()
         //await browser.pause(1000)
         expect(await PageWithDatepicker.DateField.getValue()).to.equal(`06/${addDays}/${year}`)
     })
