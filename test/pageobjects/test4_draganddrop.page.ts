@@ -12,7 +12,7 @@ class DragAndDropPage {
         return $$('#gallery li')
     }
     async open() {
-    await browser.url('https://www.globalsqa.com/demo-site/draganddrop/')
+    await browser.url(`${browser.config.baseUrl}/demo-site/draganddrop/`)
 }
 }
 

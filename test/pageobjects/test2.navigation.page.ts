@@ -1,8 +1,3 @@
-
-
-/**
- * sub page containing specific selectors and methods for a specific page
- */
 class FramesnWindowsPage {
     /**
      * define selectors using getter methods
@@ -14,9 +9,8 @@ class FramesnWindowsPage {
         await this.OpenAnotherTabButton.click()
     }
     async open() {
-        await browser.url('https://www.globalsqa.com/demo-site/frames-and-windows/')
+        await browser.url(`${browser.config.baseUrl}/demo-site/frames-and-windows/`)
     }
 }
 
-
-export default new FramesnWindowsPage();
+export default new FramesnWindowsPage()

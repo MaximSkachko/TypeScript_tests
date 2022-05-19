@@ -18,8 +18,11 @@ class PageWithDatepicker {
     get DateField() {
         return $('.hasDatepicker')
     }
+    async CellInDatePicker(addDays) {
+        return $(`//a[@class="ui-state-default" and .='${addDays}']`)
+    }
     async open() {
-        await browser.url('https://www.globalsqa.com/demo-site/datepicker/')
+        await browser.url(`${browser.config.baseUrl}/demo-site/datepicker/`)
     }
     async waitForDP() {
         await this.DatePicker.waitForDisplayed()

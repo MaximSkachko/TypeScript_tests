@@ -83,7 +83,7 @@ class SetTxTandUploadImagePage {
     }
     
     async open() {
-        await browser.url('https://www.globalsqa.com/samplepagetest/')
+        await browser.url(`${browser.config.baseUrl}/samplepagetest/`)
     }
 }
 

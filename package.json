@@ -20,6 +20,7 @@
     "dependencies": {
         "chai": "^4.3.6",
         "moment": "^2.29.1",
+        "util": "^0.12.4",
         "webdriverio": "^7.16.16"
     }
 }

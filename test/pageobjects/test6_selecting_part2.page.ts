@@ -21,7 +21,7 @@ class ComboboxPage {
         return $('.custom-combobox-input.ui-widget.ui-widget-content')
     }
     async open() {
-        await browser.url('https://www.globalsqa.com/demo-site/auto-complete/#ComboBox')
+        await browser.url(`${browser.config.baseUrl}/demo-site/auto-complete/#ComboBox`)
     }
     async wait() {
         await this.ShowUnderlyingBtn.waitForDisplayed()

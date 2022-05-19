@@ -9,14 +9,7 @@ describe ('Selecting and cycle', () => {
         await browser.switchToFrame(await SearchPage.FrameWithSearchField)
         await SearchPage.waitDisplaying()
         await SearchPage.setValue()
-        let elements = await browser.$$('.ui-menu.ui-widget .ui-menu-item') // как для такого написать page object
-        for (let i = 0; i < elements.length; i++)
-        {
-          if  (await elements[i].getText() === 'annk K12')
-          {
-              await elements[i].click()
-          }
-        }
+        await SearchPage.cycleFunction()
         expect(await SearchPage.SearchField.getValue()).to.equal('annk K12') 
     })
 })
