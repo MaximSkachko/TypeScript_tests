@@ -48,7 +48,7 @@ export const config: WebdriverIO.Config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/test5_datepicker.ts'
+        './test/specs/test6_selecting_part1.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -121,7 +121,7 @@ export const config: WebdriverIO.Config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://127.0.0.1',
+    baseUrl: 'https://www.globalsqa.com',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

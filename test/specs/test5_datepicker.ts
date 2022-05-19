@@ -7,6 +7,8 @@
 
 // const today = new Date()
 // const addMonth = new Date(today.setMonth(today.getMonth()+1))
+
+import PageWithDatepicker from '../pageobjects/test5_datepicker.page'
 import {expect} from 'chai'
 
 
@@ -20,22 +22,22 @@ let newMonth = new Date(new Date().setMonth(new Date().getMonth() + 1)).toLocale
 
 describe ('datepicker', () => {
     it ('how to use datepicker', async () => {
-        await browser.url('https://www.globalsqa.com/demo-site/datepicker/')
+        await PageWithDatepicker.open()
         await browser.maximizeWindow()
-        await (await browser.$('.demo-frame.lazyloaded')).waitForExist()
-        await browser.switchToFrame(await browser.$('.demo-frame.lazyloaded'))
-        await (await browser.$('#datepicker')).waitForDisplayed()
-        await (await browser.$('#datepicker')).click()
+        await PageWithDatepicker.waitForExist()
+        await browser.switchToFrame(await PageWithDatepicker.FrameWithDatePicker)
+        await PageWithDatepicker.waitForDP()
+        await PageWithDatepicker.clickOnDate()
         //await browser.pause(1000)
-        await (await browser.$('.ui-datepicker-next.ui-corner-all')).click()
+        await PageWithDatepicker.clickOnArrow()
         if (daysInMonth <= addDays) {
-            await (await browser.$('.ui-datepicker-next.ui-corner-all')).click()
+            await PageWithDatepicker.clickOnArrow()
             newMonth = new Date(new Date().setMonth(new Date().getMonth() + 2)).toLocaleString('en', { month: 'long' })
             //await browser.pause(1000)
         }
-        expect(await (await browser.$('.ui-datepicker-month')).getText()).to.equal(newMonth)
+        expect (await PageWithDatepicker.SelectedMonth.getText()).to.equal(newMonth)
         await (await browser.$(`//a[@class="ui-state-default" and .='${addDays}']`)).click()
         //await browser.pause(1000)
-        expect(await (await browser.$('.hasDatepicker')).getValue()).to.equal(`05/${addDays}/${year}`)
+        expect(await PageWithDatepicker.DateField.getValue()).to.equal(`06/${addDays}/${year}`)
     })
 })

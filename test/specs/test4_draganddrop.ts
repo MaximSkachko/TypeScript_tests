@@ -1,22 +1,16 @@
+import DragAndDropPage from '../pageobjects/test4_draganddrop.page'
 import {expect} from 'chai'
 
 describe('d&d', () => {
     it('how to use drag and drop', async () => {
-        await browser.url('https://www.globalsqa.com/demo-site/draganddrop/')
+        await DragAndDropPage.open()
         await browser.maximizeWindow()
-        await browser.switchToFrame(await browser.$('.demo-frame.lazyloaded'))
-        const dragElem = await browser.$('//img[@alt="The peaks of High Tatras"]')
-        const placeToDrop = await browser.$('#trash')
+        await browser.switchToFrame(await DragAndDropPage.FrameWithDraggableElements)
+        const dragElem = await DragAndDropPage.DraggableElement
+        const placeToDrop = await DragAndDropPage.PlaceToDrop
         await dragElem.dragAndDrop(placeToDrop)
-        await (await browser.$('#gallery li')).waitForDisplayed()
-        //await browser.pause(2000) // Думал сделать await galleryId.waitForDisplayed - не работает. Видимо из-за $$
-        const galleryId = await browser.$$('#gallery li')
         await browser.pause(2000)
+        const galleryId = await DragAndDropPage.AllElements
         expect(galleryId.length).to.equal(3)
-        // expect(galleryId).to.have.property({eq:4})
-        //const placeToDragandDrop = await browser.$$('#trash')
-        // await draganddrop.dragAndDrop(placeToDragandDrop)
-        //await (await browser.$('.ui-widget-content ui-corner-tr ui-draggable ui-draggable-handle')).dragAndDrop()
     })
 })
-////ul[@id='gallery']/li[@class='ui-widget-content ui-corner-tr ui-draggable ui-draggable-handle']/h5[@class='ui-widget-header']//img[@alt="The peaks of High Tatras"]
